@@ -9,8 +9,7 @@ const MSG_CONSTANT = require('../constants/msgConstant');
 const HTTP_CONSTANT = require('../constants/httpConstant');
 
 const createToken = async (data) => {
-  const auth = await authDao.createToken(data);
-  return auth;
+  return await authDao.createToken(data);
 };
 
 const userLogin = async (body) => {
@@ -59,15 +58,12 @@ const userLogout = async (token) => {
 };
 
 const getTotkenWithUser = async (payload) => {
-  const user = await authDao.getTotkenWithUser(payload);
-  return user;
+  return await authDao.getTotkenWithUser(payload);
 };
 
-const authService = {
+export const authService = {
   createToken,
   userLogin,
   userLogout,
   getTotkenWithUser
 };
-
-module.exports = authService;
